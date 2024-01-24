@@ -1,23 +1,116 @@
 ---
+import TypeScript from "../icons/TypeScript.astro";
+import JavaScript from "../icons/JavaScript.astro";
+import React from "../icons/React.astro";
+import Tailwind from "../icons/Tailwind.astro";
+import Git from "../icons/Git.astro";
+import Sass from "../icons/Sass.astro";
+import Html from "../icons/Html.astro";
+import Css from "../icons/Css.astro";
+import MySQL from "../icons/MySQL.astro";
+import Docker from "../icons/Docker.astro";
+import PowerShell from "../icons/PowerShell.astro";
+import MongoDB from "../icons/MongoDB.astro";
+import NodeJS from "../icons/NodeJS.astro";
+import Python from "../icons/Python.astro";
+import Npm from "../icons/Npm.astro";
+import Firebase from "../icons/Firebase.astro";
+import VSCode from "../icons/VSCode.astro";
+import Github from "../icons/Github.astro";
+import Skill from "./Skill.astro";
 
 ---
 
 <section id="skills" class="bg-gradient-to-r from-Purple to-Red py-[1px]">
   <div class="px-6 md:px-10 bg-black py-16">
-    <h2 class="font-sans text-white font-bold text-2xl mb-6">
+    <h2 class="font-sans text-white font-bold text-2xl mb-6 md:text-3xl">
       My
       <span class="bg-gradient-to-r from-Purple to-Red bg-clip-text text-transparent">
         skills
       </span>
     </h2>
-    <p class="font-sans mb-3 text-Grey">
+    <p class="font-sans mb-3 text-Grey md:text-lg">
       In my journey as a self-taught student with a passion for programming, I have acquired versatile skills in various tools and technologies.
     </p>
-    <p class="font-sans mb-3 text-Grey">
+    <p class="font-sans mb-3 text-Grey md:text-lg">
       This knowledge allows me to approach projects from different perspectives, from the development of dynamic web applications to the creation of attractive and functional user interfaces.
     </p>
-    <p class="font-sans mb-3 text-Grey">
+    <p class="font-sans mb-6 text-Grey md:text-lg">
       My toolbox includes:
     </p>
+    <ul class="flex flex-wrap gap-5">
+      <Skill class="bg-gradient-to-br from-[#3178C6] to-[#3179c645] rounded-lg p-[1px] shadow-md shadow-[#3179c645] hover:scale-95 transition-transform">
+        <TypeScript slot="icon" class="text-[#3178C6] size-5" />
+        TypeScript
+      </Skill>
+      <Skill class="bg-gradient-to-br from-[#F7DF1E] to-[#F7DF1E45] rounded-lg p-[1px] shadow-md shadow-[#F7DF1E45] hover:scale-95 transition-transform">
+        <JavaScript slot="icon" class="text-[#F7DF1E] size-5" />
+        JavaScript
+      </Skill>
+      <Skill class="bg-gradient-to-br from-[#61DAFB] to-[#61DAFB45] rounded-lg p-[1px] shadow-md shadow-[#61DAFB45] hover:scale-95 transition-transform">
+        <React slot="icon" class="text-[#61DAFB] size-5" />
+        React
+      </Skill>
+      <Skill class="bg-gradient-to-br from-[#06B6D4] to-[#06B6D445] rounded-lg p-[1px] shadow-md shadow-[#06B6D445] hover:scale-95 transition-transform">
+        <Tailwind slot="icon" class="text-[#06B6D4] size-5" />
+        TailwindCSS
+      </Skill>
+      <Skill class="bg-gradient-to-br from-[#F05032] to-[#F0503245] rounded-lg p-[1px] shadow-md shadow-[#F0503245] hover:scale-95 transition-transform">
+        <Git slot="icon" class="text-[#F05032] size-5" />
+        Git
+      </Skill>
+      <Skill class="bg-gradient-to-br from-[#CC6699] to-[#CC669945] rounded-lg p-[1px] shadow-md shadow-[#CC669945] hover:scale-95 transition-transform">
+        <Sass slot="icon" class="text-[#CC6699] size-5" />
+        Sass
+      </Skill>
+      <Skill class="bg-gradient-to-br from-[#E34F26] to-[#E34F2645] rounded-lg p-[1px] shadow-md shadow-[#E34F2645] hover:scale-95 transition-transform">
+        <Html slot="icon" class="text-[#E34F26] size-5" />
+        HTML
+      </Skill>
+      <Skill class="bg-gradient-to-br from-[#1572B6] to-[#1572B645] rounded-lg p-[1px] shadow-md shadow-[#1572B645] hover:scale-95 transition-transform">
+        <Css slot="icon" class="text-[#1572B6] size-5" />
+        CSS3
+      </Skill>
+      <Skill class="bg-gradient-to-br from-[#4479A1] to-[#4479A145] rounded-lg p-[1px] shadow-md shadow-[#4479A145] hover:scale-95 transition-transform">
+        <MySQL slot="icon" class="text-[#4479A1] size-5" />
+        MySQL
+      </Skill>
+      <Skill class="bg-gradient-to-br from-[#2496ED] to-[#2496ED45] rounded-lg p-[1px] shadow-md shadow-[#2496ED45] hover:scale-95 transition-transform">
+        <Docker slot="icon" class="text-[#2496ED] size-5" />
+        Docker
+      </Skill>
+      <Skill class="bg-gradient-to-br from-[#47A248] to-[#47A24845] rounded-lg p-[1px] shadow-md shadow-[#47A24845] hover:scale-95 transition-transform">
+        <MongoDB slot="icon" class="text-[#47A248] size-5" />
+        MongoDB
+      </Skill>
+      <Skill class="bg-gradient-to-br from-[#5391FE] to-[#5391FE45] rounded-lg p-[1px] shadow-md shadow-[#5391FE45] hover:scale-95 transition-transform">
+        <PowerShell slot="icon" class="text-[#5391FE] size-5" />
+        PowerShell
+      </Skill>
+      <Skill class="bg-gradient-to-br from-[#339933] to-[#33993345] rounded-lg p-[1px] shadow-md shadow-[#33993345] hover:scale-95 transition-transform">
+        <NodeJS slot="icon" class="text-[#339933] size-5" />
+        Node.js
+      </Skill>
+      <Skill class="bg-gradient-to-br from-[#CB3837] to-[#CB383745] rounded-lg p-[1px] shadow-md shadow-[#CB383745] hover:scale-95 transition-transform">
+        <Npm slot="icon" class="text-[#CB3837] size-5" />
+        npm
+      </Skill>
+      <Skill class="bg-gradient-to-br from-[#3776AB] to-[#3776AB45] rounded-lg p-[1px] shadow-md shadow-[#3776AB45] hover:scale-95 transition-transform">
+        <Python slot="icon" class="text-[#3776AB] size-5" />
+        Python
+      </Skill>
+      <Skill class="bg-gradient-to-br from-[#FFCA28] to-[#FFCA2845] rounded-lg p-[1px] shadow-md shadow-[#FFCA2845] hover:scale-95 transition-transform">
+        <Firebase slot="icon" class="text-[#FFCA28] size-5" />
+        Firebase
+      </Skill>
+      <Skill class="bg-gradient-to-br from-[#007ACC] to-[#007ACC45] rounded-lg p-[1px] shadow-md shadow-[#007ACC45] hover:scale-95 transition-transform">
+        <VSCode slot="icon" class="text-[#007ACC] size-5" />
+        VSCode
+      </Skill>
+      <Skill class="bg-gradient-to-br from-[#FFFFFF] to-[#FFFFFF45] rounded-lg p-[1px] shadow-md shadow-[#FFFFFF45] hover:scale-95 transition-transform">
+        <Github slot="icon" class="text-[#FFFFFF] size-5" />
+        GitHub
+      </Skill>
+    </ul>
   </div>
 </section>
