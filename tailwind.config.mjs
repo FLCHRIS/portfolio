@@ -9,6 +9,7 @@ export default {
 				Purple: '#7828C8',
 				Red: '#F31260',
 				Grey: '#D4D4D8',
+				Zinc: '#18181B',
 			},
 			fontFamily: {
 				sans: ['Inter Variable', ...defaultTheme.fontFamily.sans],
