@@ -1,0 +1,39 @@
+---
+import Github from "../icons/Github.astro";
+import ExternalLink from "../icons/ExternalLink.astro";
+
+interface Props {
+  title: string;
+  paragraph: string;
+  image: string;
+  hrefLive: string;
+  hrefRepository: string;
+}
+
+const { title, paragraph, image, hrefLive, hrefRepository } = Astro.props;
+---
+
+<article>
+  <div class="mb-2 flex gap-3 items-center">
+    <h3 class="font-sans text-white font-bold text-lg md:text-xl">
+      {title}
+    </h3>
+    {
+      hrefLive && (
+        <a href={hrefLive} target="_blank" aria-label="Go to live project" class="text-Grey hover:text-white transition-colors">
+          <ExternalLink class="size-5" />
+        </a>
+      )
+    }
+    <a href={hrefRepository} target="_blank" aria-label="Go to github" class="text-Grey hover:text-white transition-colors">
+      <Github class="size-5" />
+    </a>
+  </div>
+  <p class="font-sans mb-4 text-Grey md:text-lg">
+    {paragraph}
+  </p>
+  <ul class="flex gap-4 flex-wrap mb-5 md:mb-7 md:gap-6">
+    <slot />
+  </ul>
+  <img src={image} alt={title} class="rounded-md" />
+</article>
