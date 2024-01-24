@@ -15,14 +15,14 @@ const itemsMenu = [
     name: "Blog",
   },
   {
-    href: "#",
+    href: "#about",
     name: "About me",
   },
 ];
 ---
 
 <nav
-  class="max-w-4xl mx-auto sticky top-0 bg-[#00000070] backdrop-blur-sm p-6 grid grid-flow-col justify-between items-center md:p-10"
+  class="max-w-4xl mx-auto sticky top-0 bg-[#00000070] backdrop-blur-sm p-6 grid grid-flow-col justify-between items-center md:px-10 md:py-7"
 >
   <a href="/" aria-label="Go to home">
     <Logo class="w-32 md:w-44 hover:scale-95 transition-transform" />
@@ -30,7 +30,7 @@ const itemsMenu = [
 
   <div
     id="divMenu"
-    class="fixed top-0 left-0 w-full h-screen bg-black opacity-0 invisible transition-opacity sm:opacity-100 sm:visible sm:transition-none sm:static sm:h-auto sm:w-auto"
+    class="fixed top-0 left-0 w-full h-screen bg-black opacity-0 invisible transition-opacity sm:opacity-100 sm:visible sm:transition-none sm:static sm:h-auto sm:w-auto sm:bg-transparent"
   >
     <span
       class="relative block w-max mx-auto font-sans text-white text-3xl font-bold mt-24 before:content-[''] before:block before:absolute before:-bottom-1 before:left-0 before:right-0 before:mx-auto before:w-3/6 before:h-1 before:bg-gradient-to-r before:from-Purple before:to-Red sm:hidden"
@@ -49,6 +49,7 @@ const itemsMenu = [
         By
         <a
           href="https://github.com/FLCHRIS"
+          target="_blank"
           class="bg-gradient-to-r from-Purple to-Red bg-clip-text text-transparent font-bold"
           >Fkhris.ts</a
         >
