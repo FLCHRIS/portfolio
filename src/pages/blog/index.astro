@@ -1,0 +1,21 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+---
+
+<Layout title="Portfolio | FKhris.ts">
+	<Nav />
+	<main class="max-w-4xl mx-auto my-20 px-6 md:px-10">
+    <h1 class="font-sans text-white font-bold text-2xl mb-6 md:text-3xl">
+      My
+      <span
+        class="bg-gradient-to-r from-Purple to-Red bg-clip-text text-transparent"
+      >
+        blog
+      </span>
+    </h1>
+    <slot />
+	</main>
+	<Footer />
+</Layout>
