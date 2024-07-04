@@ -1,7 +1,9 @@
 ---
 import Docker from "../icons/Docker.astro";
 import MongoDB from "../icons/MongoDB.astro";
+import MySQL from "../icons/MySQL.astro";
 import NodeJS from "../icons/NodeJS.astro";
+import Prisma from "../icons/Prisma.astro";
 import React from "../icons/React.astro";
 import Sass from "../icons/Sass.astro";
 import TypeScript from "../icons/TypeScript.astro";
@@ -46,29 +48,31 @@ import Skill from "./Skill.astro";
       </Skill>
     </Project>
     <Project
-      title="Fake book store api"
-      paragraph="Fake Books API is a free online REST API that you can use whenever you need pseudo-real data for your library application, whether for development, testing, or educational purposes. This API provides dummy information about books, authors, and categories with authentication"
-      image="./images/fakeAPI.png"
-      hrefLive="https://fake-book-store.netlify.app/"
-      hrefRepository="https://github.com/FLCHRIS/fake-book-store-api"
+      title="Go shopping"
+      paragraph="This project was created to demonstrate my skills in creating APIs, making use of best practices, database management and file handling, using various technologies and following good software development practices to offer a scalable, easy to maintain and secure solution."
+      image="./images/goShopping.png"
+      hrefLive=""
+      hrefRepository="https://github.com/FLCHRIS/goshoppingback"
     >
       <Skill
-        class="bg-gradient-to-br from-[#2496ED] to-[#2496ED45] rounded-lg p-[1px] shadow-md shadow-[#2496ED45]"
+        class="bg-gradient-to-br from-[#3178C6] to-[#3179c645] rounded-lg p-[1px] shadow-md shadow-[#3179c645]"
       >
-        <Docker slot="icon" class="text-[#2496ED] size-5" />
-        Docker
-      </Skill>
-      <Skill
-        class="bg-gradient-to-br from-[#47A248] to-[#47A24845] rounded-lg p-[1px] shadow-md shadow-[#47A24845]"
-      >
-        <MongoDB slot="icon" class="text-[#47A248] size-5" />
-        MongoDB
+        <TypeScript slot="icon" class="text-[#3178C6] size-5" />
+        TypeScript
       </Skill>
       <Skill
         class="bg-gradient-to-br from-[#339933] to-[#33993345] rounded-lg p-[1px] shadow-md shadow-[#33993345]"
       >
         <NodeJS slot="icon" class="text-[#339933] size-5" />
         Node.js
+      </Skill>
+      <Skill class="bg-gradient-to-br from-[#4479A1] to-[#4479A145] rounded-lg p-[1px] shadow-md shadow-[#4479A145]">
+        <MySQL slot="icon" class="text-[#4479A1] size-5" />
+        MySQL
+      </Skill>
+      <Skill class="bg-gradient-to-br from-[#2D3748] to-[#2D374845] rounded-lg p-[1px] shadow-md shadow-[#2D374845]">
+        <Prisma slot="icon" class="text-[#2D3748] size-5" />
+        Prisma
       </Skill>
     </Project>
   </div>
