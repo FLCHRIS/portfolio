@@ -1,0 +1,149 @@
+---
+import ImageProfile from "../ImageProfile.astro";
+import Skill from "../Skill.astro";
+import TypeScript from "../../icons/technologies/TypeScript.astro";
+import JavaScript from "../../icons/technologies/JavaScript.astro";
+import Git from "../../icons/technologies/Git.astro";
+import React from "../../icons/technologies/React.astro";
+import Tailwind from "../../icons/technologies/Tailwind.astro";
+import Sass from "../../icons/technologies/Sass.astro";
+import Html from "../../icons/technologies/Html.astro";
+import Node from "../../icons/technologies/Node.astro";
+import Firebase from "../../icons/technologies/Firebase.astro";
+import Docker from "../../icons/technologies/Docker.astro";
+import Mongo from "../../icons/technologies/Mongo.astro";
+import Python from "../../icons/technologies/Python.astro";
+import Java from "../../icons/technologies/Java.astro";
+import NextJS from "../../icons/technologies/NextJS.astro";
+import Prisma from "../../icons/technologies/Prisma.astro";
+import Mysql from "../../icons/technologies/Mysql.astro";
+import Vue from "../../icons/technologies/Vue.astro";
+import Css from "../../icons/technologies/Css.astro";
+---
+
+<div class="tab_item_content grid grid-flow-row gap-y-5" data-tab="tab_item-about">
+  <article>
+    <h1 class="sr-only">A little bit about me</h1>
+    <header class="grid grid-cols-[56px_1fr] justify-start items-center gap-2">
+      <div
+        class="transition-colors size-14 rounded-full overflow-hidden border-2 border-zinc-950 dark:border-white"
+      >
+        <ImageProfile
+          classStyle="transition-transform size-full object-cover hover:scale-105"
+          typeLoading="eager"
+        />
+      </div>
+      <div>
+        <h2 class="font-semibold transition-colors text-zinc-950 dark:text-white">Christian ✨</h2>
+        <time datetime="2024-06-05" class="text-zinc-500 text-sm">June 5, 2024</time>
+      </div>
+    </header>
+    <section class="pt-2 grid grid-cols-[56px_1fr] gap-2">
+      <div class="col-start-2">
+        <h2 class="transition-colors text-2xl font-semibold text-zinc-950 dark:text-white">Hello! 👋</h2>
+        <p class="transition-colors text-zinc-700 dark:text-zinc-300 pt-2 text-pretty">
+          I'm Christian and I'm a self-taught programming enthusiast and student.
+        </p>
+        <p class="transition-colors text-zinc-700 dark:text-zinc-300 pt-2 text-pretty">
+          I firmly believe that practice makes a good programmer, which is why in my free time I like to learn new technologies.
+        </p>
+        <p class="transition-colors text-zinc-700 dark:text-zinc-300 pt-2 text-pretty">
+          I enjoy both designing and developing web pages, using my favorite technologies: JavaScript, SCSS and TailwindCSS.
+        </p>
+        <p class="transition-colors text-zinc-700 dark:text-zinc-300 pt-2 text-pretty">
+          On the backend, I like to build robust service layers using Express, Python and NestJS. I am constantly looking for ways to improve and learn, exploring new technologies and facing creative challenges.
+        </p>
+      </div>
+    </section>
+    <footer class="pt-2 grid grid-cols-[56px_1fr] gap-2">
+      <p class="col-start-2 font-medium transition-colors text-zinc-950 dark:text-white">Happy coding! 👻</p>
+    </footer>
+  </article>
+  <article>
+    <h1 class="sr-only">A little about my skills</h1>
+    <header class="grid grid-cols-[56px_1fr] justify-start items-center gap-2">
+      <div
+        class="transition-colors size-14 rounded-full overflow-hidden border-2 border-zinc-950 dark:border-white"
+      >
+        <ImageProfile
+          classStyle="transition-transform size-full object-cover hover:scale-105"
+          typeLoading="eager"
+        />
+      </div>
+      <div>
+        <h2 class="font-semibold transition-colors text-zinc-950 dark:text-white">Christian ✨</h2>
+        <time datetime="2024-06-04" class="text-zinc-500 text-sm">June 4, 2024</time>
+      </div>
+    </header>
+    <section class="pt-2 grid grid-cols-[56px_1fr] gap-2">
+      <div class="col-start-2">
+        <h2 class="transition-colors text-2xl font-semibold text-zinc-950 dark:text-white">My skills?</h2>
+        <p class="transition-colors text-zinc-700 dark:text-zinc-300 pt-2 text-pretty">
+          In my journey as a self-taught student with a passion for programming, I have acquired versatile skills in various tools and technologies.
+        </p>
+        <p class="transition-colors text-zinc-700 dark:text-zinc-300 pt-2 text-pretty">
+          My toolbox includes:
+        </p>
+        <ul class="flex flex-wrap gap-2 py-3">
+          <Skill slotName="TypeScript" styles="flex gap-1 items-center text-zing-500 font-medium">
+            <TypeScript class="size-6 text-[#3178C6]" />
+          </Skill>
+          <Skill slotName="Css" styles="flex gap-1 items-center text-zing-500 font-medium">
+            <Css class="size-6 text-[#1572B6]" />
+          </Skill>
+          <Skill slotName="Git" styles="flex gap-1 items-center text-zing-500 font-medium">
+            <Git class="size-6 text-[#F05032]" />
+          </Skill>
+          <Skill slotName="React" styles="flex gap-1 items-center text-zing-500 font-medium">
+            <React class="size-6 text-[#61DAFB]" />
+          </Skill>
+          <Skill slotName="TailwindCSS" styles="flex gap-1 items-center text-zing-500 font-medium">
+            <Tailwind class="size-6 text-[#06B6D4]" />
+          </Skill>
+          <Skill slotName="Sass" styles="flex gap-1 items-center text-zing-500 font-medium">
+            <Sass class="size-6 text-[#CC6699]" />
+          </Skill>
+          <Skill slotName="Html" styles="flex gap-1 items-center text-zing-500 font-medium">
+            <Html class="size-6 text-[#E34F26]" />
+          </Skill>
+          <Skill slotName="NodeJS" styles="flex gap-1 items-center text-zing-500 font-medium">
+            <Node class="size-6 text-[#5FA04E]" />
+          </Skill>
+          <Skill slotName="Firebase" styles="flex gap-1 items-center text-zing-500 font-medium">
+            <Firebase class="size-6 text-[#DD2C00]" />
+          </Skill>
+          <Skill slotName="Docker" styles="flex gap-1 items-center text-zing-500 font-medium">
+            <Docker class="size-6 text-[#2496ED]" />
+          </Skill>
+          <Skill slotName="Vue" styles="flex gap-1 items-center text-zing-500 font-medium">
+            <Vue class="size-6 text-[#4FC08D]" />
+          </Skill>
+          <Skill slotName="MongoDB" styles="flex gap-1 items-center text-zing-500 font-medium">
+            <Mongo class="size-6 text-[#47A248]" />
+          </Skill>
+          <Skill slotName="Python" styles="flex gap-1 items-center text-zing-500 font-medium">
+            <Python class="size-6 text-[#3776AB]" />
+          </Skill>
+          <Skill slotName="Java" styles="flex gap-1 items-center text-zing-500 font-medium">
+            <Java class="size-6 text-[#B92B27]" />
+          </Skill>
+          <Skill slotName="NextJS" styles="flex gap-1 items-center text-zing-500 font-medium">
+            <NextJS class="size-6 text-black dark:text-white" />
+          </Skill>
+          <Skill slotName="Prisma" styles="flex gap-1 items-center text-zing-500 font-medium">
+            <Prisma class="size-6 text-[#2D3748]" />
+          </Skill>
+          <Skill slotName="Mysql" styles="flex gap-1 items-center text-zing-500 font-medium">
+            <Mysql class="size-6 text-[#4479A1]" />
+          </Skill>
+          <Skill slotName="JavaScript" styles="flex gap-1 items-center text-zing-500 font-medium">
+            <JavaScript class="size-6 text-[#F7DF1E]" />
+          </Skill>
+        </ul>
+      </div>
+    </section>
+    <footer class="pt-2 grid grid-cols-[56px_1fr] gap-2">
+      <p class="col-start-2 font-medium transition-colors text-zinc-950 dark:text-white">Happy coding! 👻</p>
+    </footer>
+  </article>
+</div>

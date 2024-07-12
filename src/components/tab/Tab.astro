@@ -1,0 +1,75 @@
+---
+import AboutTab from "./AboutTab.astro";
+import BlogTab from "./BlogTab.astro";
+import ProjectsTab from "./ProjectsTab.astro";
+---
+
+<div>
+  <ul class="grid grid-cols-3 text-center">
+    <li class="tab_item tab_item-active" data-tab="tab_item-about">About</li>
+    <li class="tab_item" data-tab="tab_item-projects">Projects</li>
+    <li class="tab_item" data-tab="tab_item-blog">Blog</li>
+  </ul>
+  <div class="py-9">
+    <AboutTab />
+    <ProjectsTab />
+    <BlogTab />
+  </div>
+</div>
+
+<script>
+  const tabsItems = document.querySelectorAll<HTMLLIElement>(".tab_item");
+  const tabsItemsContent =
+    document.querySelectorAll<HTMLElement>(".tab_item_content");
+
+  if (tabsItems !== null && tabsItemsContent !== null) {
+    tabsItems.forEach((tab) => {
+      tab.addEventListener("click", (e) => {
+        const target = e.target as HTMLElement;
+        if (target) {
+          tabsItems.forEach((item) => {
+            item.classList.remove("tab_item-active");
+            if (target.dataset.tab === item.dataset.tab) {
+              item.classList.add("tab_item-active");
+            }
+          });
+          tabsItemsContent.forEach((item) => {
+            item.classList.add("hidden");
+            item.classList.remove("animate-fadeIn");
+            item.classList.remove("grid")
+            if (target.dataset.tab === item.dataset.tab) {
+              item.classList.remove("hidden");
+              item.classList.add("animate-fadeIn");
+              item.classList.add("grid")
+            }
+          });
+        }
+      });
+    });
+  }
+</script>
+
+<style>
+  .tab_item {
+    @apply relative;
+    @apply transition;
+    @apply font-medium;
+    @apply active:scale-105;
+    @apply text-zinc-500;
+    @apply cursor-pointer;
+  }
+  .tab_item-active {
+    @apply text-zinc-950;
+    @apply dark:text-white;
+    @apply before:content-[''];
+    @apply before:absolute;
+    @apply before:left-0;
+    @apply before:right-0;
+    @apply before:mx-auto;
+    @apply before:bottom-0;
+    @apply before:h-[3px];
+    @apply before:w-8;
+    @apply before:bg-pink-500;
+    @apply before:animate-fadeIn;
+  }
+</style>

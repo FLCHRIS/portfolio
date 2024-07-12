@@ -1,0 +1,13 @@
+---
+import { Image } from "astro:assets";
+import profile from "../images/profile.jpg";
+
+export interface Props {
+  classStyle: string;
+  typeLoading?: "eager" | "lazy";
+}
+
+const { classStyle, typeLoading } = Astro.props;
+---
+
+<Image src={profile} alt="Christian's profile" loading={typeLoading} class={classStyle} />

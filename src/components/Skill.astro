@@ -1,0 +1,13 @@
+---
+interface Props {
+  slotName: string;
+  styles: string;
+}
+
+const { slotName, styles } = Astro.props;
+---
+
+<li class={styles}>
+  <slot />
+  <span class="text-zinc-500">{slotName}</span>
+</li>
