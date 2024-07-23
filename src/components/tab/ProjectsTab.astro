@@ -3,8 +3,9 @@ import { Image } from "astro:assets";
 import Link from "../../icons/Link.astro";
 import Github from "../../icons/technologies/Github.astro";
 import ImageProfile from "../ImageProfile.astro";
-import deliciousFood from "../../images/deliciousFood.png";
+import burgerTime from "../../images/burgerTime.png";
 import goShopping from "../../images/goShopping.png";
+import deliciousFood from "../../images/deliciousFood.png";
 ---
 
 <div
@@ -67,7 +68,7 @@ import goShopping from "../../images/goShopping.png";
   </article>
   <article>
     <h1 class="sr-only">
-      A little description about my delicious food project.
+      A little description about my burger time project.
     </h1>
     <header class="grid grid-cols-[56px_1fr] justify-start items-center gap-2">
       <div
@@ -94,7 +95,7 @@ import goShopping from "../../images/goShopping.png";
         <h2
           class="transition-colors text-2xl font-semibold text-zinc-950 dark:text-white"
         >
-          Delicious food
+          Burger time
         </h2>
         <p
           class="transition-colors text-zinc-700 dark:text-zinc-300 pt-2 text-pretty"
@@ -113,6 +114,71 @@ import goShopping from "../../images/goShopping.png";
           </a>
           <a
             href="https://github.com/FLCHRIS/burger-time"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-zinc-500 flex items-center gap-x-1 font-medium transition-transform hover:scale-105"
+          >
+            <Github class="size-5" />
+            <span>Project code</span>
+          </a>
+        </div>
+        <Image
+          src={burgerTime}
+          alt="Burger time App Demo"
+          loading="lazy"
+          class="rounded-md"
+        />
+      </div>
+    </section>
+  </article>
+  <article>
+    <h1 class="sr-only">
+      A little description about my delicious food project.
+    </h1>
+    <header class="grid grid-cols-[56px_1fr] justify-start items-center gap-2">
+      <div
+        class="transition-colors size-14 rounded-full overflow-hidden border-2 border-zinc-950 dark:border-white"
+      >
+        <ImageProfile
+          classStyle="transition-transform size-full object-cover hover:scale-105"
+          typeLoading="eager"
+        />
+      </div>
+      <div>
+        <h2
+          class="font-semibold transition-colors text-zinc-950 dark:text-white"
+        >
+          Christian ✨
+        </h2>
+        <time datetime="2024-06-05" class="text-zinc-500 text-sm">
+          June 3, 2024
+        </time>
+      </div>
+    </header>
+    <section class="pt-2 grid grid-cols-[56px_1fr] gap-2">
+      <div class="col-start-2">
+        <h2
+          class="transition-colors text-2xl font-semibold text-zinc-950 dark:text-white"
+        >
+          Delicious food
+        </h2>
+        <p
+          class="transition-colors text-zinc-700 dark:text-zinc-300 pt-2 text-pretty"
+        >
+          This is a website that shows Delicious Food's menu, where it is located, when it was founded, what its main mission is, etc. It has a section to send an email to improve the restaurant. It has the following sections Home, About, Contact and Menu.
+        </p>
+        <div class="py-3 flex justify-start gap-8">
+          <a
+            href="https://delifoodc.netlify.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-zinc-500 flex items-center gap-x-1 font-medium transition-transform hover:scale-105"
+          >
+            <Link class="size-5" />
+            <span>Project live</span>
+          </a>
+          <a
+            href="https://github.com/FLCHRIS/d-food"
             target="_blank"
             rel="noopener noreferrer"
             class="text-zinc-500 flex items-center gap-x-1 font-medium transition-transform hover:scale-105"
