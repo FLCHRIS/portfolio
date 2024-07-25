@@ -1,0 +1,29 @@
+---
+import Cake from "../../icons/Cake.astro";
+import Check from "../../icons/Check.astro";
+import Job from "../../icons/Job.astro";
+import Badge from "../Badge.astro";
+import Typography from "../Typography.astro";
+---
+
+<section class="px-6 pt-4">
+  <Typography type="heading" level={1}>
+    Christian FL <Check class="size-5 text-pink-500" />
+  </Typography>
+  <p class="text-zinc-500 text-sm">
+    Programming ideas, creating solutions. ✨
+  </p>
+  <Typography type="paragraph">
+    Computer technology student and creative developer. My mission is to merge creativity and functionality through code.
+  </Typography>
+  <div class="flex items-center gap-x-5 pt-2">
+    <Badge>
+      <Job slot="icon" class="size-5"/>
+      Available
+    </Badge>
+    <Badge>
+      <Cake slot="icon" class="size-5"/>
+      December 26th
+    </Badge>
+  </div>
+</section>
