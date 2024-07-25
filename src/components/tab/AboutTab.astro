@@ -19,6 +19,7 @@ import Prisma from "../../icons/technologies/Prisma.astro";
 import Mysql from "../../icons/technologies/Mysql.astro";
 import Vue from "../../icons/technologies/Vue.astro";
 import Css from "../../icons/technologies/Css.astro";
+import Typography from "../Typography.astro";
 ---
 
 <div class="tab_item_content grid grid-flow-row gap-y-5" data-tab="tab_item-about">
@@ -40,23 +41,27 @@ import Css from "../../icons/technologies/Css.astro";
     </header>
     <section class="pt-2 grid grid-cols-[56px_1fr] gap-2">
       <div class="col-start-2">
-        <h2 class="transition-colors text-2xl font-semibold text-zinc-950 dark:text-white">Hello! 👋</h2>
-        <p class="transition-colors text-zinc-700 dark:text-zinc-300 pt-2 text-pretty">
+        <Typography type="heading" level={2}>
+          Hello! 👋
+        </Typography>
+        <Typography type="paragraph">
           I'm Christian and I'm a self-taught programming enthusiast and student.
-        </p>
-        <p class="transition-colors text-zinc-700 dark:text-zinc-300 pt-2 text-pretty">
+        </Typography>
+        <Typography type="paragraph">
           I firmly believe that practice makes a good programmer, which is why in my free time I like to learn new technologies.
-        </p>
-        <p class="transition-colors text-zinc-700 dark:text-zinc-300 pt-2 text-pretty">
+        </Typography>
+        <Typography type="paragraph">
           I enjoy both designing and developing web pages, using my favorite technologies: JavaScript, SCSS and TailwindCSS.
-        </p>
-        <p class="transition-colors text-zinc-700 dark:text-zinc-300 pt-2 text-pretty">
+        </Typography>
+        <Typography type="paragraph">
           On the backend, I like to build robust service layers using Express, Python and NestJS. I am constantly looking for ways to improve and learn, exploring new technologies and facing creative challenges.
-        </p>
+        </Typography>
       </div>
     </section>
     <footer class="pt-2 grid grid-cols-[56px_1fr] gap-2">
-      <p class="col-start-2 font-medium transition-colors text-zinc-950 dark:text-white">Happy coding! 👻</p>
+      <Typography type="span">
+        Happy coding! 👻
+      </Typography>
     </footer>
   </article>
   <article>
@@ -77,13 +82,15 @@ import Css from "../../icons/technologies/Css.astro";
     </header>
     <section class="pt-2 grid grid-cols-[56px_1fr] gap-2">
       <div class="col-start-2">
-        <h2 class="transition-colors text-2xl font-semibold text-zinc-950 dark:text-white">My skills?</h2>
-        <p class="transition-colors text-zinc-700 dark:text-zinc-300 pt-2 text-pretty">
+        <Typography type="heading" level={2}>
+          My skills?
+        </Typography>
+        <Typography type="paragraph">
           In my journey as a self-taught student with a passion for programming, I have acquired versatile skills in various tools and technologies.
-        </p>
-        <p class="transition-colors text-zinc-700 dark:text-zinc-300 pt-2 text-pretty">
+        </Typography>
+        <Typography type="paragraph">
           My toolbox includes:
-        </p>
+        </Typography>
         <ul class="flex flex-wrap gap-2 py-3">
           <Skill slotName="TypeScript" styles="flex gap-1 items-center text-zing-500 font-medium">
             <TypeScript class="size-6 text-[#3178C6]" />
@@ -143,7 +150,9 @@ import Css from "../../icons/technologies/Css.astro";
       </div>
     </section>
     <footer class="pt-2 grid grid-cols-[56px_1fr] gap-2">
-      <p class="col-start-2 font-medium transition-colors text-zinc-950 dark:text-white">Happy coding! 👻</p>
+      <Typography type="span">
+        Happy coding! 👻
+      </Typography>
     </footer>
   </article>
 </div>
