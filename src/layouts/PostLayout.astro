@@ -1,0 +1,72 @@
+---
+import { ViewTransitions } from "astro:transitions";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+import "@fontsource/roboto/700.css";
+
+import NavBar from "../components/NavBar.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import HeaderBlog from "../components/blog/HeaderBlog.astro";
+
+const { frontmatter } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={frontmatter.description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <meta name="theme-color" content="#09090b" />
+
+    <meta name="generator" content={Astro.generator} />
+    <title>{frontmatter.titlePage}</title>
+    <ViewTransitions />
+  </head>
+  <body class="max-w-3xl mx-auto">
+		<div class="transition-colors bg-white dark:bg-zinc-950">
+			<NavBar />
+			<Header >
+				<HeaderBlog title={frontmatter.title} date={frontmatter.date} time={frontmatter.time} tags={frontmatter.tags} />
+			</Header>
+			<main class="px-6 py-10">
+				<slot />
+			</main>
+			<Footer />
+		</div>
+    <div
+      class="transition-colors fixed inset-0 -z-20 h-full w-full bg-white bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"
+    >
+    </div>
+		<div class="fixed left-0 top-0 -z-10 size-full grid grid-cols-2">
+			<div
+				class="transition-all [clip-path:polygon(0_0,_100%_0,_100%_0,_0_0)] dark:[clip-path:polygon(0_0,_100%_0,_100%_100%,_0_100%)] h-full w-full bg-zinc-950 bg-[linear-gradient(to_right,#52525b0a_1px,transparent_1px),linear-gradient(to_bottom,#52525b0a_1px,transparent_1px)] bg-[size:14px_24px]"
+			>
+			</div>
+			<div
+				class="transition-all [clip-path:polygon(0_100%,_100%_100%,_100%_100%,_0_100%)] dark:[clip-path:polygon(0_100%,_100%_100%,_100%_0,_0_0)] h-full w-full bg-zinc-950 bg-[linear-gradient(to_right,#52525b0a_1px,transparent_1px),linear-gradient(to_bottom,#52525b0a_1px,transparent_1px)] bg-[size:14px_24px]"
+			>
+		</div>
+		</div>
+  </body>
+</html>
+<style is:global>
+	::-webkit-scrollbar {
+		@apply bg-white;
+		@apply dark:bg-zinc-950;
+	}
+	::-webkit-scrollbar-thumb {
+		@apply bg-pink-500;
+	}
+	::selection {
+		@apply bg-pink-400;
+		color: #ffffff;
+	}
+	pre {
+		@apply p-4;
+		@apply rounded-lg;
+	}
+</style>
