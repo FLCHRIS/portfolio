@@ -1,0 +1,46 @@
+---
+import Clock from "../../icons/Clock.astro";
+import Check from "../../icons/Check.astro";
+import Calendar from "../../icons/Calendar.astro";
+import Tag from "../../icons/Tag.astro";
+import Badge from "../Badge.astro";
+import Typography from "../Typography.astro";
+
+interface Props {
+  title: string;
+  date: string;
+  time: string;
+  tags: string[];
+}
+
+const { title, date, time, tags } = Astro.props;
+
+const formattedDate = new Date(date).toLocaleDateString('es-MX', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+---
+
+<section class="px-6 pt-4">
+  <Typography type="heading" level={1}>
+    {title}
+  </Typography>
+  <p class="text-zinc-500 text-sm flex gap-x-1">
+    Hecho por <span class="transition-colors font-medium text-zinc-950 dark:text-zinc-300 flex items-start gap-x-[1px]">Christian FL <Check class="size-3 text-pink-500" /></span>
+  </p>
+  <div class="flex items-center flex-wrap gap-x-5 gap-y-2 pt-5">
+    <Badge>
+      <Calendar slot="icon" class="size-5"/>
+      <time datetime={date}>{formattedDate}</time>
+    </Badge>
+    <Badge>
+      <Clock slot="icon" class="size-5"/>
+      {time}
+    </Badge>
+    <Badge>
+      <Tag slot="icon" class="size-5"/>
+      {tags.join(', ')}
+    </Badge>
+  </div>
+</section>
