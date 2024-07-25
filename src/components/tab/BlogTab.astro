@@ -1,3 +1,7 @@
+---
+import Typography from "../Typography.astro";
+---
+
 <div
   class="tab_item_content hidden grid-flow-row gap-y-5"
   data-tab="tab_item-blog"
@@ -5,18 +9,14 @@
   <article>
     <header>
       <h1 class="sr-only">Blog</h1>
-      <p
-        class="transition-colors text-zinc-700 dark:text-zinc-300 pt-2 text-pretty"
-      >
+      <Typography type="paragraph">
         Here you will find some tricks and techniques that I have learned throughout my learning in software development, as well as some designs and support tools when developing an application.
-      </p>
+      </Typography>
     </header>
-    <section>
-      <h2
-        class="transition-colors text-pretty text-2xl font-semibold text-zinc-950 dark:text-white pt-4"
-      >
+    <section class="pt-2">
+      <Typography type="heading" level={2}>
         Latest posts
-      </h2>
+      </Typography>
       <p
         class="transition-colors text-zinc-700 dark:text-zinc-300 pt-2 text-pretty"
       >
