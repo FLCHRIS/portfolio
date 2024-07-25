@@ -2,17 +2,12 @@
 import { Image } from "astro:assets";
 import ImageProfile from "./ImageProfile.astro";
 import Github from "../icons/technologies/Github.astro";
-
-export interface Props {
-  image: ImageMetadata;
-}
-
-const { image } = Astro.props;
+import backpage from "../images/backpage.png";
 ---
 
 <header>
   <Image
-    src={image}
+    src={backpage}
     alt="backpage"
     class="w-full h-44 object-cover"
     loading="eager"
