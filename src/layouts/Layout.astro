@@ -25,34 +25,34 @@ const { title } = Astro.props;
     <title>{title}</title>
     <ViewTransitions />
   </head>
-  <body class="max-w-xl mx-auto">
+  <body class="max-w-2xl mx-auto">
     <slot />
     <div
       class="transition-colors fixed inset-0 -z-20 h-full w-full bg-white bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"
     >
     </div>
-		<div class="fixed left-0 top-0 -z-10 size-full grid grid-cols-2">
-			<div
-				class="transition-all [clip-path:polygon(0_0,_100%_0,_100%_0,_0_0)] dark:[clip-path:polygon(0_0,_100%_0,_100%_100%,_0_100%)] h-full w-full bg-zinc-950 bg-[linear-gradient(to_right,#52525b0a_1px,transparent_1px),linear-gradient(to_bottom,#52525b0a_1px,transparent_1px)] bg-[size:14px_24px]"
-			>
-			</div>
-			<div
-				class="transition-all [clip-path:polygon(0_100%,_100%_100%,_100%_100%,_0_100%)] dark:[clip-path:polygon(0_100%,_100%_100%,_100%_0,_0_0)] h-full w-full bg-zinc-950 bg-[linear-gradient(to_right,#52525b0a_1px,transparent_1px),linear-gradient(to_bottom,#52525b0a_1px,transparent_1px)] bg-[size:14px_24px]"
-			>
-		</div>
-		</div>
+    <div class="fixed left-0 top-0 -z-10 size-full grid grid-cols-2">
+      <div
+        class="transition-all [clip-path:polygon(0_0,_100%_0,_100%_0,_0_0)] dark:[clip-path:polygon(0_0,_100%_0,_100%_100%,_0_100%)] h-full w-full bg-zinc-950 bg-[linear-gradient(to_right,#52525b0a_1px,transparent_1px),linear-gradient(to_bottom,#52525b0a_1px,transparent_1px)] bg-[size:14px_24px]"
+      >
+      </div>
+      <div
+        class="transition-all [clip-path:polygon(0_100%,_100%_100%,_100%_100%,_0_100%)] dark:[clip-path:polygon(0_100%,_100%_100%,_100%_0,_0_0)] h-full w-full bg-zinc-950 bg-[linear-gradient(to_right,#52525b0a_1px,transparent_1px),linear-gradient(to_bottom,#52525b0a_1px,transparent_1px)] bg-[size:14px_24px]"
+      >
+      </div>
+    </div>
   </body>
 </html>
 <style is:global>
-	::-webkit-scrollbar {
-		@apply bg-white;
-		@apply dark:bg-zinc-950;
-	}
-	::-webkit-scrollbar-thumb {
-		@apply bg-pink-500;
-	}
-	::selection {
-		@apply bg-pink-400;
-		color: #ffffff;
-	}
+  ::-webkit-scrollbar {
+    @apply bg-white;
+    @apply dark:bg-zinc-950;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-pink-500;
+  }
+  ::selection {
+    @apply bg-pink-400;
+    color: #ffffff;
+  }
 </style>
