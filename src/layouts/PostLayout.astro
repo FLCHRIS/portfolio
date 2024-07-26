@@ -27,7 +27,7 @@ const { frontmatter } = Astro.props;
     <title>{frontmatter.titlePage}</title>
     <ViewTransitions />
   </head>
-  <body class="max-w-3xl mx-auto">
+  <body class="max-w-2xl mx-auto">
 		<div class="transition-colors bg-white dark:bg-zinc-950">
 			<NavBar />
 			<Header >
@@ -48,6 +48,7 @@ const { frontmatter } = Astro.props;
 	}
 	::-webkit-scrollbar-thumb {
 		@apply bg-pink-500;
+		@apply rounded-sm;
 	}
 	::selection {
 		@apply bg-pink-400;
@@ -56,5 +57,11 @@ const { frontmatter } = Astro.props;
 	pre {
 		@apply p-4;
 		@apply rounded-lg;
+		@apply my-4;
+	}
+	pre::-webkit-scrollbar {
+		@apply bg-white;
+		@apply dark:bg-zinc-950;
+		@apply h-[7px];
 	}
 </style>
