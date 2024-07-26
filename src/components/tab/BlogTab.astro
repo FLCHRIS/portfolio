@@ -1,5 +1,8 @@
 ---
+import { formatDate } from "../../utils/formatDate";
 import Typography from "../Typography.astro";
+
+const posts = await Astro.glob("../../pages/blog/*.mdx");
 ---
 
 <div
@@ -17,11 +20,26 @@ import Typography from "../Typography.astro";
       <Typography type="heading" level={2}>
         Latest posts
       </Typography>
-      <p
-        class="transition-colors text-zinc-700 dark:text-zinc-300 pt-2 text-pretty"
-      >
-        Comming soon...
-      </p>
+      <ul>
+        {
+          posts.map((post) => (
+            <li>
+              <article>
+                <header>
+                  <h3 class="transition text-zinc-700 dark:text-zinc-300 pt-2 text-pretty hover:text-pink-500">
+                    <a href={post.url}>
+                      {post.frontmatter.title}
+                    </a>
+                  </h3>
+                  <p class="text-zinc-500 text-sm">
+                    Christian FL - <time datetime={post.frontmatter.date}>{formatDate(post.frontmatter.date)}</time>
+                  </p>
+                </header>
+              </article>
+            </li>
+          ))
+        }
+      </ul>
     </section>
   </article>
 </div>
