@@ -1,4 +1,5 @@
 ---
+import { formatDate } from "../../utils/formatDate";
 import Clock from "../../icons/Clock.astro";
 import Check from "../../icons/Check.astro";
 import Calendar from "../../icons/Calendar.astro";
@@ -14,12 +15,6 @@ interface Props {
 }
 
 const { title, date, time, tags } = Astro.props;
-
-const formattedDate = new Date(date).toLocaleDateString('es-MX', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric'
-});
 ---
 
 <section class="px-6 pt-4">
@@ -32,7 +27,7 @@ const formattedDate = new Date(date).toLocaleDateString('es-MX', {
   <div class="flex items-center flex-wrap gap-x-5 gap-y-2 pt-5">
     <Badge>
       <Calendar slot="icon" class="size-5"/>
-      <time datetime={date}>{formattedDate}</time>
+      <time datetime={date}>{formatDate(date)}</time>
     </Badge>
     <Badge>
       <Clock slot="icon" class="size-5"/>
