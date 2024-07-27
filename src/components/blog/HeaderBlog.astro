@@ -5,7 +5,6 @@ import Check from "../../icons/Check.astro";
 import Calendar from "../../icons/Calendar.astro";
 import Tag from "../../icons/Tag.astro";
 import Badge from "../Badge.astro";
-import Typography from "../Typography.astro";
 
 interface Props {
   title: string;
@@ -18,9 +17,9 @@ const { title, date, time, tags } = Astro.props;
 ---
 
 <section class="px-6 pt-4">
-  <Typography type="heading" level={1}>
+  <h1 class="transition-colors text-3xl font-semibold text-zinc-950 dark:text-white flex items-start gap-x-[1px]">
     {title}
-  </Typography>
+  </h1>
   <p class="text-zinc-500 text-sm flex gap-x-1">
     Hecho por <span class="transition-colors font-medium text-zinc-950 dark:text-zinc-300 flex items-start gap-x-[1px]">Christian FL <Check class="size-3 text-pink-500" /></span>
   </p>
