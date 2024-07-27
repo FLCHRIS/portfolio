@@ -29,3 +29,182 @@ Bueno para comenzar crearemos los siguientes archivos:
 │   └── index.js
 └── index.html
 ```
+
+## Archivo index.html
+
+Crearemos la estructura base de nuestra página web y cambiaremos el nombre de nuestra página a **Dropdown ✨**.
+
+También agregaremos una fuente de Google Fonts, la cual será **Inter**.
+
+```html ins={6-11} ins="Dropdownd ✨"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+    rel="stylesheet"
+  />
+  <title>Dropdownd ✨</title>
+</head>
+<body>
+  
+</body>
+</html>
+```
+
+Ahora vamos a linkear nuestros archivos CSS y nuestro archivo JavaScript a nuestro archivo `index.html`.
+
+```html ins={12-13} ins={17}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="./css/reset.css" />
+  <link rel="stylesheet" href="./css/index.css" />
+  <title>Dropdownd ✨</title>
+</head>
+<body>
+  <script src="./js/index.js"></script>
+</body>
+</html>
+```
+
+## Reseteando los estilos
+
+Después de haber linkeado nuestros archivos, vamos a escribir los siguientes estilos en nuestro archivo `reset.css` para poder resetear los estilos que por defecto pone el navegador en nuestra página.
+
+Ademas vamos a agregar la propiedad `font-family: 'Inter', sans-serif;` para poder usar nuestra fuente de Google Fonts (si deceas usar otra fuente, puedes hacerlo sin ningun problema 😉).
+
+```css ins={108}
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  vertical-align: baseline;
+}
+
+*::before,
+*::after {
+  display: block;
+}
+
+img,
+picture,
+video,
+iframe,
+figure {
+  max-width: 100%;
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center center;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  font-size: inherit;
+}
+
+p a {
+  display: inline;
+}
+
+li {
+  list-style-type: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+strong,
+blockquote,
+i,
+b,
+u,
+em {
+  font-size: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  text-decoration: none;
+  color: inherit;
+}
+
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
+  content: '';
+  content: none;
+}
+
+form,
+input,
+textarea,
+select,
+button,
+label {
+  font-family: inherit;
+  font-size: inherit;
+  hyphens: auto;
+  background-color: transparent;
+  color: inherit;
+  display: block;
+  appearance: none;
+  outline: none;
+}
+
+table,
+tr,
+td {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+svg {
+  width: 100%;
+  display: block;
+}
+
+body {
+  min-height: 100vh;
+  font-size: 100%;
+  font-family: 'Inter', sans-serif;
+  color: #393939;
+  hyphens: auto;
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+```
+
