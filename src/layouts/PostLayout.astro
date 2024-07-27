@@ -59,22 +59,19 @@ const { frontmatter } = Astro.props;
     @apply bg-pink-400;
     color: #ffffff;
   }
-  pre {
-    @apply p-4;
-    @apply rounded-lg;
-    @apply my-4;
-  }
-  pre::-webkit-scrollbar {
-    @apply bg-white;
-    @apply dark:bg-zinc-950;
-    @apply h-[7px];
-  }
   main p {
     @apply transition-colors;
     @apply text-zinc-700;
     @apply dark:text-zinc-300;
-    @apply pb-4;
+    @apply mb-2;
     @apply text-pretty;
+  }
+  main p code {
+    @apply bg-zinc-300;
+    @apply dark:bg-zinc-700;
+    @apply px-1;
+    @apply py-0.5;
+    @apply rounded;
   }
   main h1 {
     @apply transition-colors;
@@ -82,20 +79,21 @@ const { frontmatter } = Astro.props;
     @apply font-semibold;
     @apply text-zinc-950;
     @apply dark:text-white;
-    @apply flex;
-    @apply items-start;
-    @apply gap-x-[1px];
   }
-	main h2 {
+  main h2 {
 		@apply transition-colors;
 		@apply text-2xl;
 		@apply font-semibold;
 		@apply text-zinc-950;
 		@apply dark:text-white;
+    @apply mb-2;
 	}
 	main strong {
 		@apply font-semibold;
 		@apply transition-colors;
 		@apply text-pink-500;
 	}
+  main .expressive-code {
+    @apply my-4;
+  }
 </style>
