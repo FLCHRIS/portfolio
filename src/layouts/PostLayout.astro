@@ -28,40 +28,74 @@ const { frontmatter } = Astro.props;
     <ViewTransitions />
   </head>
   <body class="max-w-2xl mx-auto">
-		<div class="transition-colors bg-white dark:bg-zinc-950">
-			<NavBar />
-			<Header >
-				<HeaderBlog title={frontmatter.title} date={frontmatter.date} time={frontmatter.time} tags={frontmatter.tags} />
-			</Header>
-			<main class="px-6 py-10">
-				<slot />
-			</main>
-			<Footer />
-		</div>
+    <div class="transition-colors bg-white dark:bg-zinc-950">
+      <NavBar />
+      <Header>
+        <HeaderBlog
+          title={frontmatter.title}
+          date={frontmatter.date}
+          time={frontmatter.time}
+          tags={frontmatter.tags}
+        />
+      </Header>
+      <main class="px-6 py-10">
+        <slot />
+      </main>
+      <Footer />
+    </div>
     <Background />
   </body>
 </html>
 <style is:global>
-	::-webkit-scrollbar {
-		@apply bg-white;
-		@apply dark:bg-zinc-950;
+  ::-webkit-scrollbar {
+    @apply bg-white;
+    @apply dark:bg-zinc-950;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-pink-500;
+    @apply rounded-sm;
+  }
+  ::selection {
+    @apply bg-pink-400;
+    color: #ffffff;
+  }
+  pre {
+    @apply p-4;
+    @apply rounded-lg;
+    @apply my-4;
+  }
+  pre::-webkit-scrollbar {
+    @apply bg-white;
+    @apply dark:bg-zinc-950;
+    @apply h-[7px];
+  }
+  main p {
+    @apply transition-colors;
+    @apply text-zinc-700;
+    @apply dark:text-zinc-300;
+    @apply pt-2;
+    @apply text-pretty;
+  }
+  main h1 {
+    @apply transition-colors;
+    @apply text-3xl;
+    @apply font-semibold;
+    @apply text-zinc-950;
+    @apply dark:text-white;
+    @apply flex;
+    @apply items-start;
+    @apply gap-x-[1px];
+  }
+	main h2 {
+		@apply transition-colors;
+		@apply text-2xl;
+		@apply font-semibold;
+		@apply text-zinc-950;
+		@apply dark:text-white;
 	}
-	::-webkit-scrollbar-thumb {
-		@apply bg-pink-500;
-		@apply rounded-sm;
-	}
-	::selection {
-		@apply bg-pink-400;
-		color: #ffffff;
-	}
-	pre {
-		@apply p-4;
-		@apply rounded-lg;
-		@apply my-4;
-	}
-	pre::-webkit-scrollbar {
-		@apply bg-white;
-		@apply dark:bg-zinc-950;
-		@apply h-[7px];
+	main strong {
+		@apply font-semibold;
+		@apply transition-colors;
+		@apply text-pink-500;
 	}
 </style>
