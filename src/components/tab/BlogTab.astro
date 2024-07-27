@@ -1,6 +1,5 @@
 ---
 import { formatDate } from "../../utils/formatDate";
-import Typography from "../Typography.astro";
 
 const posts = await Astro.glob("../../pages/blog/*.mdx");
 ---
@@ -12,14 +11,14 @@ const posts = await Astro.glob("../../pages/blog/*.mdx");
   <article>
     <header>
       <h1 class="sr-only">Blog</h1>
-      <Typography type="paragraph">
+      <p class="transition-colors text-zinc-700 dark:text-zinc-300 pt-2 text-pretty">
         Here you will find some tricks and techniques that I have learned throughout my learning in software development, as well as some designs and support tools when developing an application.
-      </Typography>
+      </p>
     </header>
     <section class="pt-2">
-      <Typography type="heading" level={2}>
+      <h2 class="transition-colors text-2xl font-semibold text-zinc-950 dark:text-white">
         Latest posts
-      </Typography>
+      </h2>
       <ul>
         {
           posts.map((post) => (
