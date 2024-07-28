@@ -4,7 +4,7 @@ titlePage: Cómo crear un dropdown personalizado desde cero
 title: "Crea un dropdown personalizado desde cero: Tutorial completo"
 description: "Este tutorial detallado te enseñará cómo construir un dropdown a medida sin recurrir a las etiquetas HTML estándar. Descubre cómo personalizar cada aspecto de tu menú desplegable con CSS y JavaScript"
 date: 2024-07-26
-time: 5 min de lectura
+time: 3 min de lectura
 tags: ["HTML", "CSS3", "JavaScript"]
 ---
 import { Image } from "astro:assets";
@@ -17,9 +17,13 @@ import dropdowndemo from "../../images/blog/post_01/dropdowndemo.gif";
   class="w-full max-w-xl mx-auto rounded-lg mb-8"
 />
 
-¡Hola! En esta pequeña publicación te enseñaré a cómo construir un dropdownd personalizado, sin utilizar las etiquetas HTML estándar (por la accesibilidad no te preocupes, el dropdownd será completamente accesible 😊).
+¡Hola! ✨ Hoy quiero compartir contigo un **dropdown** personalizado y completamente accesible que he desarrollado. Este componente no utiliza las etiquetas HTML estándar para dropdowns, pero sigue siendo totalmente accesible 😊.
 
-Bueno para comenzar crearemos los siguientes archivos:
+## Código del Dropdown
+
+Aquí tienes todo el código necesario para implementar este dropdown en tu proyecto. He incluido los archivos HTML, CSS y JavaScript para que puedas integrarlo fácilmente.
+
+### Estructura del proyecto
 
 ```text
 ├── css
@@ -30,63 +34,90 @@ Bueno para comenzar crearemos los siguientes archivos:
 └── index.html
 ```
 
-## Archivo index.html
+### Código HTML 🧱
 
-Crearemos la estructura base de nuestra página web y cambiaremos el nombre de nuestra página a **Dropdown ✨**.
+Primero, crearemos la estructura HTML de nuestro dropdown.
 
-También agregaremos una fuente de Google Fonts, la cual será **Inter**.
-
-```html ins={6-11} ins="Dropdownd ✨"
+```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
-    rel="stylesheet"
-  />
-  <title>Dropdownd ✨</title>
-</head>
-<body>
-  
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Dropdown ✨</title>
+  </head>
+  <body>
+    <main class="main">
+      <div class="main__dropdown dropdown">
+        <button
+          class="dropdown__item"
+          aria-haspopup="listbox"
+          aria-expanded="false"
+          aria-controls="dropdown__menu"
+        >
+          <span class="dropdown__item-input" id="dropdown__item-input">
+            Select a pet...
+          </span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+            class="dropdown__item-icon"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M6 9l6 6l6 -6" />
+          </svg>
+        </button>
+        <ul
+          class="dropdown__menu menu"
+          id="dropdown__menu"
+          role="listbox"
+          aria-labelledby="dropdown__item-input"
+        >
+          <li class="menu__item" role="option" tabindex="0" data-value="Fish">
+            Fish 🐠
+          </li>
+          <li class="menu__item" role="option" tabindex="0" data-value="Cat">
+            Cat 😺
+          </li>
+          <li class="menu__item" role="option" tabindex="0" data-value="Dog">
+            Dog 🐶
+          </li>
+          <li class="menu__item" role="option" tabindex="0" data-value="Cow">
+            Cow 🐮
+          </li>
+          <li class="menu__item" role="option" tabindex="0" data-value="Bird">
+            Bird 🐦
+          </li>
+        </ul>
+      </div>
+    </main>
+    <div class="background-overlay"></div>
+    <script src="./js/script.js"></script>
+  </body>
 </html>
 ```
 
-Ahora vamos a linkear nuestros archivos CSS y nuestro archivo JavaScript a nuestro archivo `index.html`.
+### Código CSS 🎨
 
-```html ins={12-13} ins={17}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
-    rel="stylesheet"
-  />
-  <link rel="stylesheet" href="./css/reset.css" />
-  <link rel="stylesheet" href="./css/index.css" />
-  <title>Dropdownd ✨</title>
-</head>
-<body>
-  <script src="./js/index.js"></script>
-</body>
-</html>
-```
+Primero, escribimos el archivo `reset.css` para asegurarnos de que nuestro diseño no se vea afectado por los estilos predeterminados del navegador.
 
-## Reseteando los estilos
-
-Después de haber linkeado nuestros archivos, vamos a escribir los siguientes estilos en nuestro archivo `reset.css` para poder resetear los estilos que por defecto pone el navegador en nuestra página.
-
-Ademas vamos a agregar la propiedad `font-family: 'Inter', sans-serif;` para poder usar nuestra fuente de Google Fonts (si deceas usar otra fuente, puedes hacerlo sin ningun problema 😉).
-
-```css ins={108}
+```css
 *,
 *::before,
 *::after {
@@ -208,3 +239,181 @@ body {
 }
 ```
 
+Luego, agregamos el estilo específico para el dropdown en `index.css`.
+
+```css
+.background-overlay {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: -1;
+  background: linear-gradient(to right, #4f4f4f2e 1px, transparent 1px),
+    linear-gradient(to bottom, #4f4f4f2e 1px, transparent 1px);
+  background-size: 14px 24px;
+  mask-image: radial-gradient(ellipse 80% 50% at 50% 0%, #000 70%, transparent 110%);
+}
+
+.main {
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+}
+
+.main__dropdown {
+  position: relative;
+}
+
+.dropdown__item {
+  min-width: 13rem;
+  position: relative;
+  z-index: 20;
+  background-color: #ffffff;
+  border: 1px solid #D4D4D4;
+  border-radius: .5rem;
+  padding: .8rem 1.2rem;
+  cursor: pointer;
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  transition: transform .3s ease, opacity .3s ease;
+}
+
+.dropdown__item-input {
+  color: #0A0A0A;
+}
+
+.dropdown__item-icon {
+  transition: transform .3s ease;
+}
+
+.dropdown__menu {
+  position: absolute;
+  left: 0;
+  z-index: 10;
+  top: calc(100% + .5rem);
+  width: 100%;
+  max-height: 15rem;
+  overflow-y: auto;
+  background-color: #ffffff;
+  border: 1px solid #D4D4D4;
+  border-radius: .5rem;
+  padding: .5rem .6rem;
+  box-shadow: 0px 4px 15px rgba(115, 115, 115, 0.15);
+  visibility: hidden;
+}
+
+.menu__item {
+  position: relative;
+  padding: .5rem .6rem;
+  cursor: pointer;
+  border-radius: .4rem;
+  z-index: 10;
+  overflow: hidden;
+  transition: opacity .3s ease;
+}
+
+.dropdown__item:active {
+  transform: scale(0.95);
+}
+
+.menu__item:hover {
+  opacity: 0.6;
+}
+
+.dropdown__menu::-webkit-scrollbar {
+  width: .4rem;
+}
+
+.dropdown__menu::-webkit-scrollbar-thumb {
+  background-color: #D4D4D4;
+  border-radius: .4rem;
+}
+
+.dropdown__menu::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.dropdown__item--active {
+  transform: scale(0.9);
+  opacity: 0.7;
+}
+
+.dropdown__item-icon--active {
+  transform: rotate(-180deg);
+}
+
+.menu__item--active {
+  color: #ffffff;
+  font-weight: 500;
+  background-color: #0A0A0A;
+}
+
+.dropdown__menu--active {
+  visibility: visible;
+  animation: fade_in .3s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+@keyframes fade_in {
+  0% {
+    opacity: 0;
+    transform: translateY(-90px);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateY(10px);
+  }
+  70% {
+    opacity: 0.7;
+    transform: translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+```
+
+### Código JavaScript ⚡
+
+Finalmente, agregamos la funcionalidad del dropdown con JavaScript.
+
+```js
+const menuItems = document.querySelectorAll(".menu__item");
+const dropdownItem = document.querySelector(".dropdown__item");
+const dropdownMenu = document.querySelector(".dropdown__menu");
+const dropdownItemIcon = document.querySelector(".dropdown__item-icon");
+const dropdownItemInput = document.querySelector(".dropdown__item-input");
+
+dropdownItem.addEventListener("click", () => {
+  dropdownItem.classList.toggle("dropdown__item--active");
+  dropdownMenu.classList.toggle("dropdown__menu--active");
+  dropdownItemIcon.classList.toggle("dropdown__item-icon--active");
+});
+
+menuItems.forEach((menuItem) => {
+  menuItem.addEventListener("click", (e) => {
+    dropdownItem.classList.remove("dropdown__item--active");
+    dropdownMenu.classList.remove("dropdown__menu--active");
+    dropdownItemIcon.classList.remove("dropdown__item-icon--active");
+
+    dropdownItemInput.dataset.value = e.target.dataset.value;
+    dropdownItemInput.innerHTML = e.target.innerHTML;
+
+    menuItems.forEach((item) => {
+      item.classList.remove("menu__item--active");
+
+      if (item.dataset.value === dropdownItemInput.dataset.value) {
+        item.classList.add("menu__item--active");
+      }
+    });
+  });
+});
+```
+
+Puedes copiar y pegar el código en tu proyecto para probarlo. Espero que te guste y lo mas importante que te sea útil 😊. 
+
+**Happy coding** 👻
