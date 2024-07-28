@@ -38,7 +38,7 @@ const { frontmatter } = Astro.props;
           tags={frontmatter.tags}
         />
       </Header>
-      <main class="px-6 py-10">
+      <main class="px-6 py-10 main__content">
         <slot />
       </main>
       <Footer />
@@ -59,28 +59,28 @@ const { frontmatter } = Astro.props;
     @apply bg-pink-400;
     color: #ffffff;
   }
-  main p {
+  .main__content p {
     @apply transition-colors;
     @apply text-zinc-700;
     @apply dark:text-zinc-300;
     @apply mb-2;
     @apply text-pretty;
   }
-  main p code {
+  .main__content p code {
     @apply bg-zinc-300;
     @apply dark:bg-zinc-700;
     @apply px-1;
     @apply py-0.5;
     @apply rounded;
   }
-  main h1 {
+  .main__content h1 {
     @apply transition-colors;
     @apply text-3xl;
     @apply font-semibold;
     @apply text-zinc-950;
     @apply dark:text-white;
   }
-  main h2 {
+  .main__content h2 {
 		@apply transition-colors;
 		@apply text-2xl;
 		@apply font-semibold;
@@ -89,7 +89,7 @@ const { frontmatter } = Astro.props;
     @apply mb-2;
     @apply mt-4;
 	}
-  main h3 {
+  .main__content h3 {
 		@apply transition-colors;
 		@apply text-xl;
 		@apply font-semibold;
@@ -98,12 +98,12 @@ const { frontmatter } = Astro.props;
     @apply mb-2;
     @apply mt-4;
 	}
-	main strong {
+  .main__content strong {
 		@apply font-semibold;
 		@apply transition-colors;
 		@apply text-pink-500;
 	}
-  main .expressive-code {
+  .main__content .expressive-code {
     @apply my-4;
   }
 </style>
