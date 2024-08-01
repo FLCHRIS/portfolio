@@ -24,7 +24,7 @@ const { frontmatter } = Astro.props;
     <meta name="theme-color" content="#09090b" />
 
     <meta name="generator" content={Astro.generator} />
-    <title>{frontmatter.titlePage}</title>
+    <title>{frontmatter.title}</title>
     <ViewTransitions />
   </head>
   <body class="max-w-2xl mx-auto">
@@ -66,7 +66,14 @@ const { frontmatter } = Astro.props;
     @apply mb-2;
     @apply text-pretty;
   }
-  .main__content p code {
+  .main__content p code,
+  .main__content h1 code,
+  .main__content h2 code,
+  .main__content h3 code,
+  .main__content h4 code,
+  .main__content ul code,
+  .main__content ol code {
+    @apply transition-colors;
     @apply bg-zinc-300;
     @apply dark:bg-zinc-700;
     @apply px-1;
@@ -98,11 +105,36 @@ const { frontmatter } = Astro.props;
     @apply mb-2;
     @apply mt-4;
 	}
+  .main__content h4 {
+		@apply transition-colors;
+		@apply text-base;
+		@apply font-semibold;
+		@apply text-zinc-950;
+		@apply dark:text-white;
+    @apply mb-2;
+    @apply mt-4;
+	}
   .main__content strong {
 		@apply font-semibold;
 		@apply transition-colors;
 		@apply text-pink-500;
 	}
+  .main__content ul {
+    @apply list-disc;
+    @apply ml-7;
+    @apply my-2;
+    @apply transition-colors;
+    @apply text-zinc-700;
+    @apply dark:text-zinc-300;
+  }
+  .main__content ol {
+    @apply list-decimal;
+    @apply ml-7;
+    @apply my-2;
+    @apply transition-colors;
+    @apply text-zinc-700;
+    @apply dark:text-zinc-300;
+  }
   .main__content .expressive-code {
     @apply my-4;
   }
