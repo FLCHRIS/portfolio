@@ -1,0 +1,501 @@
+---
+layout: ../../layouts/PostLayout.astro
+title: "Tutorial Paso a Paso: Cambia de Tema con la API View Transition"
+description: "Tutorial paso a paso sobre cómo aplicar transiciones de tema con la API View Transition. Añade efectos de cambio de tema atractivos y mejora la usabilidad de tu sitio web."
+date: 2024-07-31
+time: 15 min de lectura
+tags: ["HTML", "CSS3", "JavaScript"]
+---
+import { Image } from "astro:assets";
+import preview from "../../images/blog/post_02/preview.gif";
+import img1 from "../../images/blog/post_02/sintransicion.gif";
+
+<Image 
+  src={preview}
+  alt="Pequeña demostración de el dropdown"
+  loading="eager"
+  class="w-full max-w-xl mx-auto rounded-lg mb-8"
+/>
+
+Agregar un modo oscuro a nuestros sitios web es una excelente manera de mejorar la accesibilidad y la experiencia del usuario. En este tutorial, aprenderás a implementar transiciones de tema utilizando la API View Transition, **¡Usando solo CSS y un poco de JavaScript!** Descubre cómo crear efectos visuales fluidos y atractivos que harán que tu sitio web se destaque entre los demás.
+
+## Estructura del proyecto
+
+Para comenzar crearemos la siguiente estructura del proyecto:
+
+```text
+├── css
+│   ├── style.css
+│   └── reset.css
+├── js
+│   └── script.js
+└── index.html
+```
+
+## Estructura base de nuestra página web
+
+Lo primero que haremos será crear la estructura base de nuestra página web, además de linkear nuestros archivos `reset.css`, `index.css` y `script.js`.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Light ☀️ / Dark 🌑 Mode</title>
+  </head>
+  <body>
+    <script type="module" src="./js/script.js"></script>
+  </body>
+</html>
+```
+
+## Reseteando estilos
+
+Ahora vamos a resetear los estilos que por defecto pone el navegador a los elementos HTML. Te dejo es código css aquí abajo 👇:
+
+```css
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  vertical-align: baseline;
+}
+
+*::before,
+*::after {
+  display: block;
+}
+
+img,
+picture,
+video,
+iframe,
+figure {
+  max-width: 100%;
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center center;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  font-size: inherit;
+}
+
+p a {
+  display: inline;
+}
+
+li {
+  list-style-type: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+strong,
+blockquote,
+i,
+b,
+u,
+em {
+  font-size: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  text-decoration: none;
+  color: inherit;
+}
+
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
+  content: '';
+  content: none;
+}
+
+form,
+input,
+textarea,
+select,
+button,
+label {
+  font-family: inherit;
+  font-size: inherit;
+  hyphens: auto;
+  background-color: transparent;
+  color: inherit;
+  display: block;
+  appearance: none;
+  outline: none;
+}
+
+table,
+tr,
+td {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+svg {
+  width: 100%;
+  display: block;
+}
+
+body {
+  min-height: 100vh;
+  font-size: 100%;
+  font-family: 'Inter', sans-serif;
+  color: #393939;
+  hyphens: auto;
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+```
+
+## Agregando contenido a nuestra página web
+
+El contenido de nuestra página es muy poco, por lo que lo agregaremos a continuación.
+
+```html ins={17-27}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Light ☀️ / Dark 🌑 Mode</title>
+  </head>
+  <body>
+    <main class="main">
+      <h1 class="main__title">Light ☀️ / Dark 🌑 Mode</h1>
+      <p class="main__paragraph">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid ipsam
+        numquam reprehenderit eius nisi tenetur laudantium. Voluptatibus ut nisi
+        itaque beatae asperiores temporibus totam! Iste in ratione eaque sunt
+        quo?
+      </p>
+      <button class="main__btn" id="btn">Toggle Mode</button>
+    </main>
+    <div class="background"></div>
+    <script type="module" src="./js/script.js"></script>
+  </body>
+</html>
+```
+
+La etiqueta `<div class="background"></div>` no es necesaria que la pongas, pero yo la usaré para que nuestra página no se vea tan simple 😊.
+
+## Agregando los estilos CSS 🎨
+
+Ahora, vamos a agregar los estilos para el modo claro ☀️ de nuestra página web.
+
+```css
+.background {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background-color: #ffffff;
+}
+
+.background::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: linear-gradient(to right, #4f4f4f2e 1px, transparent 1px),
+    linear-gradient(to bottom, #4f4f4f2e 1px, transparent 1px);
+  background-size: 14px 24px;
+  mask-image: radial-gradient(ellipse 80% 50% at 50% 0%, #000 70%, transparent 110%);
+}
+
+.main {
+  width: 100%;
+  max-width: 768px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.main__title {
+  font-size: 2rem;
+  color: #09090b;
+  font-weight: 600;
+}
+
+.main__paragraph {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #52525b;
+  margin: 1.5rem 0 1.5rem;
+}
+
+.main__btn {
+  cursor: pointer;
+  padding: .8rem 1.3rem;
+  border-radius: .5rem;
+  background-color: #09090b;
+  color: #ffffff;
+  font-size: 1.1rem;
+}
+```
+
+## Crear animación de cambio de tema ✨
+
+Crear esta animación no es muy complicado y solo es cuestión de utilizar un poco de `@keyframes` y `pseudo-elements`.
+
+En nuestro archivo `style.css`, agregaremos los siguientes pseudo-elements y keyframes:
+
+```css
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 1.5s;
+}
+
+::view-transition-new(root) {
+  animation-name: translateIn;
+}
+
+::view-transition-old(root) {
+  animation-name: translateOut;
+}
+
+@keyframes translateIn {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes translateOut {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+```
+
+### Explicación del código 🧑‍💻
+
+La **API View Transition** introduce dos pseudo-elements especiales: `::view-transition-old` y `::view-transition-new`. Estos se utilizan para definir estilos y animaciones para el contenido saliente (el viejo) y el contenido entrante (el nuevo) durante una transición.
+
+- `::view-transition-old`: Representa el estado del contenido antes de la transición.
+- `::view-transition-new`: Representa el estado del contenido después de la transición.
+
+#### Definición general de animaciones
+
+```css
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 1.5s;
+}
+```
+
+Aquí, se establece que ambos pseudo-elementos (`::view-transition-old` y `::view-transition-new`) tendrán una animación de duración 1.5 segundos.
+
+El término **root** dentro de estos `pseudo-elements` hace referencia al elemento raíz del documento (generalmente el elemento `<html>` o el `<body>`). Al especificar **root**, estamos indicando que queremos aplicar las animaciones a toda la vista o pantalla del documento durante la transición de tema.
+
+#### Animación para el contenido nuevo
+
+```css
+::view-transition-new(root) {
+  animation-name: translateIn;
+}
+```
+
+Se asigna la animación `translateIn` al pseudo-elemento `::view-transition-new`, que representa el contenido que está entrando.
+
+#### Animación para el Contenido Viejo
+
+```css
+::view-transition-old(root) {
+  animation-name: translateOut;
+}
+```
+
+Se asigna la animación `translateOut` al pseudo-elemento `::view-transition-old`, que representa el contenido que está saliendo.
+
+#### Definición de la animación `translateIn`
+
+```css
+@keyframes translateIn {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+```
+
+La animación `translateIn` mueve el contenido desde fuera de la parte superior de la pantalla (`translateY(-100%)`) a su posición original (`translateY(0)`) mientras cambia su opacidad de 0 a 1.
+
+#### Definición de la animación `translateOut`
+
+```css
+@keyframes translateOut {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+```
+
+La animación translateOut mueve el contenido desde su posición original (`translateY(0)`) hacia fuera de la parte inferior de la pantalla (`translateY(100%)`) mientras cambia su opacidad de 1 a 0.
+
+## Agregar modo oscuro 🌑
+
+En el mismo archivo `styles.css` agregaremos el siguiente código al final de nuestro archivo ya que sino lo haces no se aplicará ningun cambio de tema esto es por la **especificidad de CSS**.
+
+```css
+.dark .background {
+  background-color: #09090b;
+}
+
+.dark .main__title {
+  color: #ffffff;
+}
+
+.dark .main__btn {
+  background-color: #ffffff;
+  color: #09090b;
+}
+```
+
+Eso a sido todo por parte de los archivos `html` y `css` 🎉🎊.
+
+## Agregando código JavaScript ⚡
+
+En el archivo `script.js` agregaremos el siguiente código:
+
+```js
+const toggleBtn = document.querySelector('.main__btn');
+const body = document.querySelector('body');
+
+toggleBtn.addEventListener('click', () => {
+  body.classList.toggle('dark');
+})
+```
+
+<Image 
+  src={img1}
+  alt="Cambio de tema sin transición"
+  loading="eager"
+  class="w-full max-w-xl mx-auto rounded-lg mb-8"
+/>
+
+Si ahora con este código intentas cambiar el tema a oscuro, lo hará 🤩, pero no con la transición 😢 ya que no estamos utilizando la **API View Transition**, así que ahora vamos a usarla.
+
+Este es el código que agregaremos en el archivo `script.js`:
+
+```js ins={4-6} ins={10} del={9}
+const toggleBtn = document.querySelector('.main__btn');
+const body = document.querySelector('body');
+
+const toggleMode = () => {
+  body.classList.toggle('dark');
+}
+
+toggleBtn.addEventListener('click', () => {
+  body.classList.toggle('dark');
+  document.startViewTransition(() => toggleMode());
+})
+```
+
+### Explicación del código 🧑‍💻
+
+La **API startViewTransition** es una nueva característica que facilita la creación de transiciones visuales fluidas al cambiar contenido en la página. Aquí se utiliza para realizar una transición suave al alternar entre los temas claro y oscuro.
+
+- `document.startViewTransition(callback)`: Este método acepta una función de retorno (callback) que contiene los cambios que deben ocurrir durante la transición. En este caso, la función `toggleMode` se pasa como callback, por lo que los cambios de clase (y, por tanto, de tema) ocurren dentro de una transición visual gestionada por la API.
+
+#### Función `toggleMode`
+
+```js
+const toggleMode = () => {
+  body.classList.toggle('dark');
+}
+```
+
+La función `toggleMode` se encarga de alternar el modo de tema entre claro y oscuro. Lo hace añadiendo o eliminando la clase `dark` del elemento `body`:
+
+- `body.classList.toggle('dark')`: Este método añade la clase `dark` al `body` si no está presente, y la elimina si ya está presente. Es una forma conveniente de alternar entre los dos modos de tema.
+
+#### Evento `click` en el botón
+
+```js
+toggleBtn.addEventListener('click', () => {
+  document.startViewTransition(() => toggleMode());
+});
+```
+
+Aquí se añade un evento de `click` al botón `toggleBtn` que realiza las siguientes acciones:
+
+- `toggleBtn.addEventListener('click', callback)`: Este método añade un "escuchador" de eventos que se activa cuando el botón es presionado.
+- `document.startViewTransition(() => toggleMode())`: Este es el núcleo del código. Invoca la **API startViewTransition** de document, que inicia una transición visual.
+
+## ¡Gracias por leer! 🎉
+
+Bueno... 😮‍💨 Ese a sido todo el tutorial 🤓.
+
+Espero que te haya gustado, y que hayas aprendido algo nuevo. Y lo más importante, que te sea de ayuda para tus futuros proyectos ✨😊.
+
+**Happy coding** 👻
