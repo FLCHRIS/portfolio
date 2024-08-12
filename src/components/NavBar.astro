@@ -4,14 +4,14 @@ import ToggleTheme from "./ToggleTheme";
 ---
 
 <nav
-  class="transition-colors sticky z-10 w-full top-0 left-0 bg-white/40 dark:bg-zinc-950/40 p-6 grid grid-flow-col items-center justify-between backdrop-blur-sm"
+  class="sticky z-10 w-full top-0 left-0 bg-white/40 dark:bg-zinc-950/40 p-6 grid grid-flow-col items-center justify-between backdrop-blur-sm"
 >
   <a
     href="/"
     class="transition-transform hover:scale-110 w-32"
     aria-label="Home"
   >
-    <Logo class="transition-colors fill-zinc-950 dark:fill-white w-full" />
+    <Logo class="fill-zinc-950 dark:fill-white w-full" />
   </a>
   <ToggleTheme client:visible />  
 </nav>
