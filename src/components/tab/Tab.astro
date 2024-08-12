@@ -18,36 +18,35 @@ import ProjectsTab from "./ProjectsTab.astro";
 </div>
 
 <script>
-  document.addEventListener("astro:page-load", () => {
-    const tabsItems = document.querySelectorAll<HTMLLIElement>(".tab_item");
-    const tabsItemsContent = document.querySelectorAll<HTMLElement>(".tab_item_content");
+  const tabsItems = document.querySelectorAll<HTMLLIElement>(".tab_item");
+  const tabsItemsContent =
+    document.querySelectorAll<HTMLElement>(".tab_item_content");
 
-    if (tabsItems !== null && tabsItemsContent !== null) {
-      tabsItems.forEach((tab) => {
-        tab.addEventListener("click", (e) => {
-          const target = e.target as HTMLElement;
-          if (target) {
-            tabsItems.forEach((item) => {
-              item.classList.remove("tab_item-active");
-              if (target.dataset.tab === item.dataset.tab) {
-                item.classList.add("tab_item-active");
-              }
-            });
-            tabsItemsContent.forEach((item) => {
-              item.classList.add("hidden");
-              item.classList.remove("animate-fadeIn");
-              item.classList.remove("grid")
-              if (target.dataset.tab === item.dataset.tab) {
-                item.classList.remove("hidden");
-                item.classList.add("animate-fadeIn");
-                item.classList.add("grid")
-              }
-            });
-          }
-        });
+  if (tabsItems !== null && tabsItemsContent !== null) {
+    tabsItems.forEach((tab) => {
+      tab.addEventListener("click", (e) => {
+        const target = e.target as HTMLElement;
+        if (target) {
+          tabsItems.forEach((item) => {
+            item.classList.remove("tab_item-active");
+            if (target.dataset.tab === item.dataset.tab) {
+              item.classList.add("tab_item-active");
+            }
+          });
+          tabsItemsContent.forEach((item) => {
+            item.classList.add("hidden");
+            item.classList.remove("animate-fadeIn");
+            item.classList.remove("grid");
+            if (target.dataset.tab === item.dataset.tab) {
+              item.classList.remove("hidden");
+              item.classList.add("animate-fadeIn");
+              item.classList.add("grid");
+            }
+          });
+        }
       });
-    }
-  })
+    });
+  }
 </script>
 
 <style>
