@@ -465,7 +465,7 @@ toggleBtn.addEventListener('click', () => {
 
 La **API startViewTransition** es una nueva característica que facilita la creación de transiciones visuales fluidas al cambiar contenido en la página. Aquí se utiliza para realizar una transición suave al alternar entre los temas claro y oscuro.
 
-- `document.startViewTransition(callback)`: Este método acepta una función de retorno (callback) que contiene los cambios que deben ocurrir durante la transición. En este caso, la función `toggleMode` se pasa como callback, por lo que los cambios de clase (y, por tanto, de tema) ocurren dentro de una transición visual gestionada por la API.
+- `document.startViewTransition(cb)`: Este método acepta una función de retorno (callback) que contiene los cambios que deben ocurrir durante la transición. En este caso, la función `toggleMode` se pasa como callback, por lo que los cambios de clase (y, por tanto, de tema) ocurren dentro de una transición visual gestionada por la API.
 
 #### Función `toggleMode`
 
@@ -489,7 +489,7 @@ toggleBtn.addEventListener('click', () => {
 
 Aquí se añade un evento de `click` al botón `toggleBtn` que realiza las siguientes acciones:
 
-- `toggleBtn.addEventListener('click', callback)`: Este método añade un "escuchador" de eventos que se activa cuando el botón es presionado.
+- `toggleBtn.addEventListener('click', cb)`: Este método añade un "escuchador" de eventos que se activa cuando el botón es presionado.
 - `document.startViewTransition(() => toggleMode())`: Este es el núcleo del código. Invoca la **API startViewTransition** de document, que inicia una transición visual.
 
 ## ¡Gracias por leer! 🎉
