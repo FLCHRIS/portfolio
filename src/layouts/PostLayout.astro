@@ -20,15 +20,12 @@ const { frontmatter } = Astro.props;
     <meta name="description" content={frontmatter.description} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-
     <meta name="theme-color" content="#09090b" />
-
-    <meta name="generator" content={Astro.generator} />
     <title>{frontmatter.title}</title>
     <ViewTransitions />
   </head>
   <body class="max-w-2xl mx-auto">
-    <div class="transition-colors bg-white dark:bg-zinc-950">
+    <div class="bg-white dark:bg-zinc-950">
       <NavBar />
       <Header>
         <HeaderBlog
@@ -47,6 +44,24 @@ const { frontmatter } = Astro.props;
   </body>
 </html>
 <style is:global>
+  ::view-transition-new(root),
+  ::view-transition-old(root) {
+    animation: none;
+    animation-duration: 1.5s;
+  }
+  ::view-transition-new(root) {
+    animation-name: clipIn;
+  }
+
+  @keyframes clipIn {
+    from {
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+    to {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+  }
+  
   ::-webkit-scrollbar {
     @apply bg-white;
     @apply dark:bg-zinc-950;
