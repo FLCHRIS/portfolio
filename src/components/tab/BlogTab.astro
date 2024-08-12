@@ -11,12 +11,12 @@ const posts = await Astro.glob("../../pages/blog/*.mdx");
   <article>
     <header>
       <h1 class="sr-only">Blog</h1>
-      <p class="transition-colors text-zinc-700 dark:text-zinc-300 pt-2 text-pretty">
+      <p class="text-zinc-700 dark:text-zinc-300 pt-2 text-pretty">
         Here you will find some tricks and techniques that I have learned throughout my learning in software development, as well as some designs and support tools when developing an application.
       </p>
     </header>
     <section class="pt-2">
-      <h2 class="transition-colors text-2xl font-semibold text-zinc-950 dark:text-white">
+      <h2 class="text-2xl font-semibold text-zinc-950 dark:text-white">
         Latest posts
       </h2>
       <ul>
@@ -25,7 +25,7 @@ const posts = await Astro.glob("../../pages/blog/*.mdx");
             <li>
               <article>
                 <header>
-                  <h3 class="transition text-zinc-700 dark:text-zinc-300 pt-2 text-pretty hover:text-pink-500">
+                  <h3 class="transition-colors text-zinc-700 dark:text-zinc-300 pt-2 text-pretty hover:text-pink-500">
                     <a href={post.url}>
                       {post.frontmatter.title}
                     </a>
