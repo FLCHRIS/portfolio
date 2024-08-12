@@ -7,6 +7,8 @@ const ToggleTheme = () => {
   const [theme, setTheme] = useState("light");
 
   const toggleDarkMode = async (theme: string) => {
+    if (!document.startViewTransition) return setTheme(theme);
+
     await document.startViewTransition(() => {
       flushSync(() => {
         setTheme(theme);
