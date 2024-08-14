@@ -43,18 +43,36 @@ const { frontmatter } = Astro.props;
   </body>
 </html>
 <style is:global>
-  ::view-transition-new(root),
-  ::view-transition-old(root) {
-    animation: none;
+  ::view-transition-group(root) {
     animation-duration: 1.5s;
-  }
-  ::view-transition-new(root) {
-    animation-name: clipIn;
+    animation-timing-function: var(--expo-out);
   }
 
-  @keyframes clipIn {
+  ::view-transition-new(root) {
+    animation-name: reveal-light;
+  }
+
+  ::view-transition-old(root),
+  .dark::view-transition-old(root) {
+    animation: none;
+    z-index: -1;
+  }
+  .dark::view-transition-new(root) {
+    animation-name: reveal-dark;
+  }
+
+  @keyframes reveal-dark {
     from {
       clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+    to {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+  }
+
+  @keyframes reveal-light {
+    from {
+      clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
     }
     to {
       clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
