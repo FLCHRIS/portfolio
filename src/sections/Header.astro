@@ -1,0 +1,48 @@
+---
+import GithubIcon from "@/icons/GithubIcon.astro";
+import MailIcon from "@/icons/MailIcon.astro";
+import WorldIcon from "@/icons/WorldIcon.astro";
+---
+
+<header class="px-6 pb-5 w-full max-w-2xl mx-auto">
+  <h1
+    class="text-3xl font-mono font-semibold text-center mb-4 text-gray-900 sm:text-start"
+  >
+    Christian FL
+  </h1>
+  <p
+    class="text-center font-mono font-medium text-gray-700 mb-1.5 sm:text-start sm:max-w-xs"
+  >
+    Full-Stack Developer con 1 año de experiencia en desarrollo web.
+  </p>
+  <p
+    class="font-mono text-sm text-gray-700 flex items-center justify-center gap-x-1 mb-3 sm:justify-start"
+  >
+    <WorldIcon class="size-4" />
+    Xalapa, Veracruz, México
+  </p>
+  <ul class="flex items-start justify-center gap-x-2 sm:justify-start">
+    <li>
+      <a
+        href="mailto:fkhris26@gmail.com"
+        target="_blank"
+        rel="noreferrer"
+        class="block text-gray-700 p-1 border border-gray-200 rounded-md hover:bg-gray-200 hover:text-gray-900 hover:scale-105 transition"
+      >
+        <span class="sr-only">Email</span>
+        <MailIcon class="size-5" />
+      </a>
+    </li>
+    <li>
+      <a
+        href="https://github.com/FLCHRIS"
+        target="_blank"
+        rel="noreferrer"
+        class="block text-gray-700 p-1 border border-gray-200 rounded-md hover:bg-gray-200 hover:text-gray-900 hover:scale-105 transition"
+      >
+        <span class="sr-only">Github</span>
+        <GithubIcon class="size-5" />
+      </a>
+    </li>
+  </ul>
+</header>

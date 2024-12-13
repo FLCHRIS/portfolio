@@ -1,0 +1,54 @@
+---
+import GithubIcon from "@/icons/GithubIcon.astro";
+import ExternalLinkIcon from "@/icons/ExternalLinkIcon.astro";
+
+export interface Props {
+  name: string;
+  description: string;
+  urlCode?: string;
+  urlLive?: string;
+}
+
+const { name, description, urlCode, urlLive } = Astro.props;
+---
+
+<li class="border-b border-gray-200 pb-2">
+  <div class="flex items-center justify-start gap-x-2 mb-1">
+    <h3 class="font-mono font-medium text-gray-900">{name}</h3>
+    <ul class="flex gap-x-2">
+      {
+        urlCode && (
+          <li>
+            <a
+              href={urlCode}
+              target="_blank"
+              rel="noreferrer"
+              class="block p-1 border border-gray-200 rounded-md hover:bg-gray-200 hover:text-gray-900 hover:scale-105 transition"
+            >
+              <GithubIcon class="size-4" />
+              <span class="sr-only">Github</span>
+            </a>
+          </li>
+        )
+      }
+      {
+        urlLive && (
+          <li>
+            <a
+              href={urlLive}
+              target="_blank"
+              rel="noreferrer"
+              class="block p-1 border border-gray-200 rounded-md hover:bg-gray-200 hover:text-gray-900 hover:scale-105 transition"
+            >
+              <ExternalLinkIcon class="size-4" />
+              <span class="sr-only">Visitar sitio</span>
+            </a>
+          </li>
+        )
+      }
+    </ul>
+  </div>
+  <p class="text-sm font-mono text-gray-500">
+    {description}
+  </p>
+</li>

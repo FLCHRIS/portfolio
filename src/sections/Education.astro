@@ -1,0 +1,27 @@
+---
+import Timeline from "@/components/Timeline.astro";
+import TimelineItem from "@/components/TimelineItem.astro";
+
+const TIMELINE_ITEMS = [
+  {
+    date: "2020 - Actual",
+    title: "Tecnologías Computacionales",
+    company: "Universidad Veracruzana",
+  },
+];
+---
+
+<section class="px-6 py-5 w-full max-w-2xl mx-auto">
+  <h2 class="text-xl font-semibold font-mono text-gray-900 mb-3">Educación</h2>
+  <Timeline>
+    {
+      TIMELINE_ITEMS.map((item) => (
+        <TimelineItem
+          date={item.date}
+          company={item.company}
+          title={item.title}
+        />
+      ))
+    }
+  </Timeline>
+</section>

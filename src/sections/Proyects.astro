@@ -1,0 +1,33 @@
+---
+import Proyect from "@/components/Proyect.astro";
+
+const PROYECTS = [
+  {
+    name: "Burger Time",
+    description: "Pequeña aplicación web de pedidos de comida para restaurantes, donde puedes pedir hamburguesas, bebidas, ensaladas, postres y desayunos.",
+    urlCode: "https://github.com/FLCHRIS/burger-time",
+    urlLive: "https://breakfasttimeandburger.netlify.app/",
+  },
+  {
+    name: 'Book Store API',
+    description: 'API para una tienda en línea de libros con un panel de administración exclusivo para la gestión de inventario, donde los clientes pueden explorar y comprar libros fácilmente.',
+    urlCode: 'https://github.com/FLCHRIS/book-store-API'
+  }
+];
+---
+
+<section class="px-6 py-5 w-full max-w-2xl mx-auto">
+  <h2 class="text-xl font-semibold font-mono text-gray-900 mb-3">Proyectos</h2>
+  <ul class="grid gap-4">
+    {
+      PROYECTS.map((proyect) => (
+        <Proyect
+          name={proyect.name}
+          description={proyect.description}
+          urlCode={proyect.urlCode}
+          urlLive={proyect.urlLive}
+        />
+      ))
+    }
+  </ul>
+</section>
