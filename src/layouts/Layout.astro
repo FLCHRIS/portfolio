@@ -58,10 +58,7 @@ const { title, description, keywords } = Astro.props;
     <main class="py-14">
       <slot />
     </main>
-    <div
-      class="fixed -z-10 inset-0 size-full bg-white bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
-    >
-    </div>
+    <div class="fixed -z-10 inset-0 size-full bg-white"><div class="absolute h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div></div>
   </body>
 </html>
 
