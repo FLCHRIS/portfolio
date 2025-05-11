@@ -58,7 +58,19 @@ const { title, description, keywords } = Astro.props;
     <main class="py-14">
       <slot />
     </main>
-    <div class="fixed -z-10 inset-0 size-full bg-white"><div class="absolute h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div></div>
+    <div class="fixed -z-10 inset-0 size-full bg-white dark:hidden"><div class="absolute h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div></div>
+    <div class="fixed top-0 left-0 w-full h-full -z-10 hidden dark:block">
+			<div class="relative h-full w-full bg-black">
+				<div
+					class="absolute bottom-0 left-[-20%] right-0 top-[-10%] h-[550px] w-[550px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(120,40,200,.15),rgba(255,255,255,0))]"
+				>
+				</div>
+				<div
+					class="absolute bottom-0 right-[-20%] top-[-10%] h-[550px] w-[550px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(243,18,96,.15),rgba(255,255,255,0))]"
+				>
+				</div>
+			</div>
+		</div>
   </body>
 </html>
 
@@ -68,8 +80,10 @@ const { title, description, keywords } = Astro.props;
   }
   ::-webkit-scrollbar-track {
     @apply bg-transparent;
+    @apply dark:bg-black;
   }
   ::-webkit-scrollbar-thumb {
-    @apply bg-gray-300;
+    @apply bg-neutral-300;
+    @apply dark:bg-neutral-500;
   }
 </style>

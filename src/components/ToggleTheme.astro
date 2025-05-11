@@ -1,0 +1,60 @@
+---
+import ThemeIcon from "@/icons/ThemeIcon.astro";
+---
+
+<button
+  id="theme-toggle"
+  class="fixed right-5 top-5 p-[1px] bg-neutral-200 rounded-md dark:bg-neutral-950 dark:bg-gradient-to-br dark:from-red-500 dark:to-purple-500 hover:scale-105 transition-transform"
+>
+  <span class="block bg-white text-neutral-700 p-1 rounded-md dark:bg-neutral-900 dark:text-neutral-200">
+    <ThemeIcon class="size-6" />
+  </span>
+</button>
+
+<script>
+const themeToggle = document.getElementById("theme-toggle");
+
+if (!themeToggle) throw new Error("No theme toggle found");
+
+const handleTheme = () => {
+  document.documentElement.classList.toggle("dark");
+}
+
+themeToggle.addEventListener("click", () => {
+  if (!document.startViewTransition) return handleTheme();
+
+  document.startViewTransition(() => {
+    handleTheme();
+  });
+});
+</script>
+
+<style is:global>
+::view-transition-group(root) {
+  animation-duration: 1s;
+}
+::view-transition-new(root) {
+  animation: dark-mode 1s ease;
+}
+::view-transition-old(root) {
+  animation: light-mode 1s ease;
+}
+
+@keyframes dark-mode {
+  from {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+  to {
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+  }
+}
+
+@keyframes light-mode {
+  from {
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+  }
+  to {
+    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+  }
+}
+</style>

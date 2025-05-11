@@ -12,9 +12,11 @@ export interface Props {
 const { name, description, urlCode, urlLive } = Astro.props;
 ---
 
-<li class="border-b border-gray-200 pb-2">
+<li>
   <div class="flex items-center justify-start gap-x-2 mb-1">
-    <h3 class="font-mono font-medium text-gray-900">{name}</h3>
+    <h3 class="font-mono font-medium text-neutral-900 dark:text-neutral-200">
+      {name}
+    </h3>
     <ul class="flex gap-x-2">
       {
         urlCode && (
@@ -23,10 +25,12 @@ const { name, description, urlCode, urlLive } = Astro.props;
               href={urlCode}
               target="_blank"
               rel="noreferrer"
-              class="block p-1 border border-gray-200 bg-white rounded-md hover:bg-gray-200 hover:text-gray-900 hover:scale-105 transition"
+              class="block p-[1px] bg-neutral-200 rounded-md dark:bg-neutral-950 dark:bg-gradient-to-br dark:from-red-500 dark:to-purple-500 hover:scale-105 transition-transform"
             >
-              <GithubIcon class="size-4" />
-              <span class="sr-only">Github</span>
+              <span class="block bg-white text-neutral-700 p-1 rounded-md dark:bg-neutral-900 dark:text-neutral-200">
+                <GithubIcon class="size-4" />
+                <span class="sr-only">Github</span>
+              </span>
             </a>
           </li>
         )
@@ -38,17 +42,20 @@ const { name, description, urlCode, urlLive } = Astro.props;
               href={urlLive}
               target="_blank"
               rel="noreferrer"
-              class="block p-1 border border-gray-200 rounded-md hover:bg-gray-200 hover:text-gray-900 hover:scale-105 transition"
+              class="block p-[1px] bg-neutral-200 rounded-md dark:bg-neutral-950 dark:bg-gradient-to-br dark:from-red-500 dark:to-purple-500 hover:scale-105 transition-transform"
             >
-              <ExternalLinkIcon class="size-4" />
-              <span class="sr-only">Visitar sitio</span>
+              <span class="block bg-white text-neutral-700 p-1 rounded-md dark:bg-neutral-900 dark:text-neutral-200">
+                <ExternalLinkIcon class="size-4" />
+                <span class="sr-only">Visitar sitio</span>
+              </span>
             </a>
           </li>
         )
       }
     </ul>
   </div>
-  <p class="text-sm font-mono text-gray-500">
+  <p class="pb-2 text-sm font-mono text-gray-500 dark:text-neutral-400">
     {description}
   </p>
+  <div class="bg-neutral-200 dark:bg-gradient-to-r dark:from-purple-500 dark:to-red-500 w-full h-px"></div>
 </li>
